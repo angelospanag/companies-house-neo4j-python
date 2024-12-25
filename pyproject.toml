@@ -1,0 +1,17 @@
+[project]
+name = "companies-house-neo4j-python"
+authors = [{ name = "Angelos Panagiotopoulos", email = "angelospanag@protonmail.com" }]
+version = "0.1.0"
+description = "A proof of concept app that stores the full graph network (officers, persons with significant control) of a UK company in Neo4j using the Companies House Public Data API"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "neo4j>=5.27.0",
+    "pydantic-settings>=2.7.0",
+    "pydantic>=2.10.4",
+    "requests>=2.32.3",
+    "typer>=0.15.1",
+]
+
+[dependency-groups]
+dev = ["ruff>=0.8.4"]
