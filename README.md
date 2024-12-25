@@ -59,6 +59,7 @@ Generate an API key using
 the [Companies House API guidelines](https://developer-specs.company-information.service.gov.uk/guides/authorisation).
 
 ```bash
+# Companies House
 COMPANIES_HOUSE_API_KEY="change_me"
 COMPANIES_HOUSE_BASE_URL="https://api.company-information.service.gov.uk"
 
