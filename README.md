@@ -29,14 +29,20 @@ the [Companies House Public Data API](https://developer-specs.company-informatio
 **MacOS (using `brew`)**
 
 ```bash
-brew install python3 uv
+brew install python@3.13 uv
 ```
 
 **Ubuntu/Debian**
 
 ```bash
-sudo apt install python3 python3-venv
-curl -LsSf https://astral.sh/uv/install.sh | sh
+# Python
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install python3.13 python3.13-venv pipx
+pipx ensurepath
+
+# uv
+pipx install uv
 ```
 
 ### 2. Create a virtual environment with all necessary dependencies
