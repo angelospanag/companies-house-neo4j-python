@@ -21,7 +21,10 @@ def store_in_neo4j(company_number):
     if company_data:
         driver = GraphDatabase.driver(
             str(get_settings().neo4j_uri),
-            auth=(get_settings().neo4j_user, get_settings().neo4j_password.get_secret_value()),
+            auth=(
+                get_settings().neo4j_user,
+                get_settings().neo4j_password.get_secret_value(),
+            ),
         )
         with driver.session() as session:
             session.write_transaction(create_company_node, company_data)
@@ -48,8 +51,8 @@ def store_in_neo4j(company_number):
 
                     # Recursively fetch data for corporate PSCs
                     if (
-                            psc.get("kind")
-                            == "corporate-entity-person-with-significant-control"
+                        psc.get("kind")
+                        == "corporate-entity-person-with-significant-control"
                     ):
                         corporate_number = psc.get("identification", {}).get(
                             "registration_number"

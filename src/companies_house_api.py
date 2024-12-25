@@ -11,7 +11,9 @@ def get_company_data(company_number):
     """
     url = f"{get_settings().companies_house_base_url}company/{company_number}"
     try:
-        response = requests.get(url, auth=(get_settings().companies_house_api_key.get_secret_value(), ""))
+        response = requests.get(
+            url, auth=(get_settings().companies_house_api_key.get_secret_value(), "")
+        )
         response.raise_for_status()
         return response.json()
     except requests.RequestException as e:
@@ -27,7 +29,9 @@ def get_officers_data(company_number):
     """
     url = f"{get_settings().companies_house_base_url}company/{company_number}/officers"
     try:
-        response = requests.get(url, auth=(get_settings().companies_house_api_key.get_secret_value(), ""))
+        response = requests.get(
+            url, auth=(get_settings().companies_house_api_key.get_secret_value(), "")
+        )
         response.raise_for_status()
         return response.json()
     except requests.RequestException as e:
@@ -43,7 +47,9 @@ def get_pscs_data(company_number):
     """
     url = f"{get_settings().companies_house_base_url}company/{company_number}/persons-with-significant-control"
     try:
-        response = requests.get(url, auth=(get_settings().companies_house_api_key.get_secret_value(), ""))
+        response = requests.get(
+            url, auth=(get_settings().companies_house_api_key.get_secret_value(), "")
+        )
         response.raise_for_status()
         return response.json()
     except requests.RequestException as e:
