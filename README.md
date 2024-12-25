@@ -4,7 +4,9 @@ A proof of concept app that stores the full graph network (officers, persons wit
 in [Neo4j](https://neo4j.com) using
 the [Companies House Public Data API](https://developer-specs.company-information.service.gov.uk/companies-house-public-data-api/reference).
 
-![Neo4j company data of Waterstones Booksellers Limited (00610095){caption=Neo4j company data of Waterstones Booksellers Limited (00610095)}](images/neo4j-query-example.png)
+![Graph company data of Waterstones Booksellers Limited (00610095)](images/neo4j-query-example.png)
+*Graph company data
+of [Waterstones Booksellers Limited (00610095)](https://find-and-update.company-information.service.gov.uk/company/00610095)*
 
 <!-- TOC -->
 
