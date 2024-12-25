@@ -1,9 +1,23 @@
 # companies-house-neo4j-python
 
 A proof of concept app that stores the full graph network (officers, persons with significant control) of a UK company
-in
-Neo4j using
+in [Neo4j](https://neo4j.com) using
 the [Companies House Public Data API](https://developer-specs.company-information.service.gov.uk/companies-house-public-data-api/reference).
+
+
+<!-- TOC -->
+
+* [companies-house-neo4j-python](#companies-house-neo4j-python)
+    * [Prerequisites](#prerequisites)
+        * [1. Install Python 3 and uv](#1-install-python-3-and-uv)
+        * [2. Create a virtual environment with all necessary dependencies](#2-create-a-virtual-environment-with-all-necessary-dependencies)
+        * [3. Create a `.env` file at the root of the project](#3-create-a-env-file-at-the-root-of-the-project)
+        * [4. Optionally run a Neo4j database as a Docker container](#4-optionally-run-a-neo4j-database-as-a-docker-container)
+    * [Run application](#run-application)
+    * [Linting](#linting)
+    * [Formatting](#formatting)
+
+<!-- TOC -->
 
 ## Prerequisites
 
@@ -58,4 +72,16 @@ docker compose up -d neo4j
 
 ```bash
 uv run main.py COMPANY_NUMBER
+```
+
+## Linting
+
+```bash
+uv run ruff check src/*
+```
+
+## Formatting
+
+```bash
+uv run ruff format src/*
 ```
