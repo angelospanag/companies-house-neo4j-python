@@ -69,7 +69,7 @@ COMPANIES_HOUSE_BASE_URL="https://api.company-information.service.gov.uk"
 # Neo4j
 NEO4J_URI="bolt://localhost:7687"
 NEO4J_USER="neo4j"
-NEO4J_PASSWORD="your_password"
+NEO4J_PASSWORD="password"
 ```
 
 ### 4. Optionally run a Neo4j database as a Docker container
