@@ -6,12 +6,12 @@ description = "A proof of concept app that stores the full graph network (office
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "neo4j>=5.27.0",
+    "neo4j>=5.28.1",
     "pydantic-settings>=2.7.0",
-    "pydantic>=2.10.4",
+    "pydantic>=2.10.6",
     "requests>=2.32.3",
     "typer>=0.15.1",
 ]
 
 [dependency-groups]
-dev = ["ruff>=0.9.1"]
+dev = ["ruff>=0.9.6"]
