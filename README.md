@@ -9,22 +9,20 @@ the [Companies House Public Data API](https://developer-specs.company-informatio
 of [Waterstones Booksellers Limited (00610095)](https://find-and-update.company-information.service.gov.uk/company/00610095)*
 
 <!-- TOC -->
-
 * [companies-house-neo4j-python](#companies-house-neo4j-python)
-    * [Prerequisites](#prerequisites)
-        * [1. Install Python 3 and uv](#1-install-python-3-and-uv)
-        * [2. Create a virtual environment with all necessary dependencies](#2-create-a-virtual-environment-with-all-necessary-dependencies)
-        * [3. Create a `.env` file at the root of the project](#3-create-a-env-file-at-the-root-of-the-project)
-        * [4. Optionally run a Neo4j database as a Docker container](#4-optionally-run-a-neo4j-database-as-a-docker-container)
-    * [Run application](#run-application)
-    * [Linting](#linting)
-    * [Formatting](#formatting)
-
+  * [Prerequisites](#prerequisites)
+    * [1. Install Python 3 and uv](#1-install-python-3-and-uv)
+    * [2. Create a virtual environment with all necessary dependencies](#2-create-a-virtual-environment-with-all-necessary-dependencies)
+    * [3. Create a `.env` file at the root of the project](#3-create-a-env-file-at-the-root-of-the-project)
+    * [4. Optionally run a Neo4j database as a Docker container](#4-optionally-run-a-neo4j-database-as-a-docker-container)
+  * [Run application](#run-application)
+  * [Linting](#linting)
+  * [Formatting](#formatting)
 <!-- TOC -->
 
 ## Prerequisites
 
-- [Python 3.13.\*](https://www.python.org/downloads/)
+- [Python 3.14.\*](https://www.python.org/downloads/)
 - [uv](https://docs.astral.sh/uv/)
 
 ### 1. Install Python 3 and uv
@@ -32,7 +30,7 @@ of [Waterstones Booksellers Limited (00610095)](https://find-and-update.company-
 **MacOS (using `brew`)**
 
 ```bash
-brew install python@3.13 uv
+brew install python@3.14 uv
 ```
 
 **Ubuntu/Debian**
@@ -41,7 +39,7 @@ brew install python@3.13 uv
 # Python
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
-sudo apt install python3.13 python3.13-venv pipx
+sudo apt install python3.14 python3.14-venv pipx
 pipx ensurepath
 
 # uv
