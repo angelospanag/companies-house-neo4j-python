@@ -27,7 +27,7 @@ of [Waterstones Booksellers Limited (00610095)](https://find-and-update.company-
 
 ### 1. Install Python 3 and uv
 
-**MacOS (using `brew`)**
+**macOS (using `brew`)**
 
 ```bash
 brew install python@3.14 uv
