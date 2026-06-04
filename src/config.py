@@ -1,6 +1,6 @@
 from functools import lru_cache
 
-from pydantic import SecretStr, HttpUrl, AnyUrl
+from pydantic import AnyUrl, HttpUrl, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -16,4 +16,4 @@ class Settings(BaseSettings):
 
 @lru_cache
 def get_settings():
-    return Settings()
+    return Settings()  # type: ignore

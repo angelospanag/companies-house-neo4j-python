@@ -1,95 +1,73 @@
 # companies-house-neo4j-python
 
-A proof of concept app that stores the full graph network (officers, persons with significant control) of a UK company
-in [Neo4j](https://neo4j.com) using
-the [Companies House Public Data API](https://developer-specs.company-information.service.gov.uk/companies-house-public-data-api/reference).
+A proof of concept CLI app that stores the full graph network (officers, persons with significant control) of a UK company in [Neo4j](https://neo4j.com) using the [Companies House Public Data API](https://developer-specs.company-information.service.gov.uk/companies-house-public-data-api/reference).
 
 ![Graph company data of Waterstones Booksellers Limited (00610095)](images/neo4j-query-example.png)
-*Graph company data
-of [Waterstones Booksellers Limited (00610095)](https://find-and-update.company-information.service.gov.uk/company/00610095)*
+*Graph company data of [Waterstones Booksellers Limited (00610095)](https://find-and-update.company-information.service.gov.uk/company/00610095)*
 
-<!-- TOC -->
-* [companies-house-neo4j-python](#companies-house-neo4j-python)
-  * [Prerequisites](#prerequisites)
-    * [1. Install Python 3 and uv](#1-install-python-3-and-uv)
-    * [2. Create a virtual environment with all necessary dependencies](#2-create-a-virtual-environment-with-all-necessary-dependencies)
-    * [3. Create a `.env` file at the root of the project](#3-create-a-env-file-at-the-root-of-the-project)
-    * [4. Optionally run a Neo4j database as a Docker container](#4-optionally-run-a-neo4j-database-as-a-docker-container)
-  * [Run application](#run-application)
-  * [Linting](#linting)
-  * [Formatting](#formatting)
-<!-- TOC -->
+## Getting Started
 
-## Prerequisites
-
-- [Python 3.14.\*](https://www.python.org/downloads/)
-- [uv](https://docs.astral.sh/uv/)
-
-### 1. Install Python 3 and uv
-
-**macOS (using `brew`)**
+[mise](https://mise.jdx.dev/) manages the pinned toolchain (Python 3.14, uv).
 
 ```bash
-brew install python@3.14 uv
+# macOS / Linux
+curl https://mise.run | sh
+
+# Windows
+winget install jdx.mise
 ```
 
-**Ubuntu/Debian**
+Activate mise in your shell (`~/.zshrc`):
 
-```bash
-# Python
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt update
-sudo apt install python3.14 python3.14-venv pipx
-pipx ensurepath
-
-# uv
-pipx install uv
+```zsh
+eval "$(mise activate zsh)"
 ```
 
-### 2. Create a virtual environment with all necessary dependencies
-
-From the root of the project execute:
+Then, in the repo:
 
 ```bash
-uv sync
+mise trust         # one-time
+mise install       # downloads Python and uv
+mise run install   # installs dependencies into .venv
 ```
 
-### 3. Create a `.env` file at the root of the project
+Create a `.env` file at the root of the project. Generate an API key using the [Companies House API guidelines](https://developer-specs.company-information.service.gov.uk/guides/authorisation).
 
-Generate an API key using
-the [Companies House API guidelines](https://developer-specs.company-information.service.gov.uk/guides/authorisation).
-
-```bash
-# Companies House
+```dotenv
 COMPANIES_HOUSE_API_KEY="change_me"
-COMPANIES_HOUSE_BASE_URL="https://api.company-information.service.gov.uk"
+COMPANIES_HOUSE_BASE_URL="https://api.company-information.service.gov.uk/"
 
-# Neo4j
 NEO4J_URI="bolt://localhost:7687"
 NEO4J_USER="neo4j"
 NEO4J_PASSWORD="password"
 ```
 
-### 4. Optionally run a Neo4j database as a Docker container
+Optionally run Neo4j as a container:
 
 ```bash
 docker compose up -d neo4j
 ```
 
-## Run application
+## Running
 
 ```bash
-uv run main.py COMPANY_NUMBER
+uv run python main.py <COMPANY_NUMBER>
 ```
 
-## Linting
+Example — Waterstones Booksellers Limited:
 
 ```bash
-uv run ruff check src/*
+uv run python main.py 00610095
 ```
 
-## Formatting
+## Development
 
-```bash
-uv run ruff format src/*
-```
+| Command            | Description                                 |
+|--------------------|---------------------------------------------|
+| `mise run install` | Install dependencies into `.venv`           |
+| `mise run test`    | Run tests                                   |
+| `mise run fmt`     | Format code via `ruff format`               |
+| `mise run lint`    | Lint code via `ruff check`                  |
+| `mise run typecheck` | Type check via `ty check`                 |
+| `mise run vuln`    | Scan dependencies for known vulnerabilities |
+| `mise run deps`    | Update and sync dependencies                |

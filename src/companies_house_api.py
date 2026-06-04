@@ -45,7 +45,8 @@ def get_pscs_data(company_number):
     Args:
         company_number: The company number
     """
-    url = f"{get_settings().companies_house_base_url}company/{company_number}/persons-with-significant-control"
+    base = get_settings().companies_house_base_url
+    url = f"{base}company/{company_number}/persons-with-significant-control"
     try:
         response = requests.get(
             url, auth=(get_settings().companies_house_api_key.get_secret_value(), "")

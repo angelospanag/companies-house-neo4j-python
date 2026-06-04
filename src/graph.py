@@ -27,11 +27,11 @@ def store_in_neo4j(company_number):
             ),
         )
         with driver.session() as session:
-            session.write_transaction(create_company_node, company_data)
+            session.execute_write(create_company_node, company_data)
 
             if officers_data and "items" in officers_data:
                 for officer in officers_data["items"]:
-                    session.write_transaction(
+                    session.execute_write(
                         create_officer_or_corporate_officer, company_data, officer
                     )
 
@@ -45,7 +45,7 @@ def store_in_neo4j(company_number):
 
             if pscs_data and "items" in pscs_data:
                 for psc in pscs_data["items"]:
-                    session.write_transaction(
+                    session.execute_write(
                         create_psc_node_and_relationship, company_data, psc
                     )
 
