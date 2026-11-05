@@ -1,6 +1,6 @@
 services:
   neo4j:
-    image: neo4j:latest
+    image: neo4j:2026.10.1-community-trixie
     volumes:
       - /$HOME/neo4j/logs:/logs
       - /$HOME/neo4j/config:/config
